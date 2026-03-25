@@ -3,169 +3,1484 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery | Surat Furniture</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Gallery | Funrix Furniture House — Surat</title>
+    <meta
+      name="description"
+      content="Browse Funrix Furniture's gallery — premium bedroom, living room, office and modular kitchen furniture crafted for homes across Surat."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #f0d080;
+        --gold-dark: #9a7830;
+        --dark: #0f0e0c;
+        --dark-2: #1a1814;
+        --dark-3: #242018;
+        --cream: #f8f4ee;
+        --text-muted: rgba(255, 255, 255, 0.4);
+        --border: rgba(201, 168, 76, 0.18);
+        --font-serif: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "DM Sans", Helvetica, sans-serif;
+        --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-sans);
+        background: var(--dark);
+        color: var(--cream);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 64px;
+        background: rgba(12, 11, 9, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        z-index: 1000;
+      }
+      .logo a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid var(--gold);
+        object-fit: cover;
+        padding: 3px;
+        background: #fff;
+        transition: transform 0.3s;
+      }
+      .logo img:hover {
+        transform: scale(1.06);
+      }
+      .logo-name {
+        font-family: var(--font-serif);
+        font-size: 21px;
+        color: var(--gold-light);
+        letter-spacing: 1px;
+        line-height: 1;
+      }
+      .logo-name small {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        margin-top: 3px;
+      }
+      .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .nav-list li {
+        position: relative;
+      }
+      .nav-list li a {
+        display: block;
+        padding: 8px 18px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        border-radius: 6px;
+        transition:
+          color 0.25s,
+          background 0.25s;
+      }
+      .nav-list li a:hover,
+      .nav-list li a.active {
+        color: var(--gold);
+        background: rgba(201, 168, 76, 0.08);
+      }
+      .arrow {
+        font-size: 9px;
+        margin-left: 4px;
+        transition: transform 0.3s;
+      }
+      .dropdown:hover .arrow {
+        transform: rotate(180deg);
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 210px;
+        background: var(--dark-2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 8px;
+        display: none;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        animation: dropDown 0.2s var(--ease);
+      }
+      @keyframes dropDown {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li a {
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        text-transform: none;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 22px;
+        color: var(--cream);
+        cursor: pointer;
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* ===== HERO ===== */
+      .gallery-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 90px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800")
+          center/cover no-repeat;
+        transform: scale(1.07);
+        animation: zoomOut 9s ease forwards;
+      }
+      @keyframes zoomOut {
+        from {
+          transform: scale(1.07);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          160deg,
+          rgba(10, 9, 7, 0.3) 0%,
+          rgba(10, 9, 7, 0.18) 45%,
+          rgba(10, 9, 7, 0.9) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 90px;
+        max-width: 860px;
+      }
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        animation: slideUp 0.8s var(--ease) 0.3s both;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 44px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero-eyebrow span {
+        font-size: 10px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .gallery-hero h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(56px, 8vw, 100px);
+        font-weight: 400;
+        line-height: 0.95;
+        color: var(--cream);
+        margin-bottom: 26px;
+        animation: slideUp 0.9s var(--ease) 0.45s both;
+      }
+      .gallery-hero h1 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+      .gallery-hero .sub {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 420px;
+        line-height: 1.8;
+        animation: slideUp 0.9s var(--ease) 0.6s both;
+      }
+      .hero-scroll {
+        position: absolute;
+        bottom: 40px;
+        right: 80px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        animation: fadeIn 1s var(--ease) 1.4s both;
+      }
+      .scroll-line {
+        width: 1px;
+        height: 64px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        animation: pulse 2.2s ease infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scaleY(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(0.65);
+        }
+      }
+      .hero-scroll span {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        writing-mode: vertical-rl;
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ===== FILTER ===== */
+      .filter-wrap {
+        background: var(--dark-2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        position: sticky;
+        top: 76px;
+        z-index: 99;
+      }
+      .filter-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 18px 30px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .filter-btn {
+        padding: 9px 26px;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.38);
+        cursor: pointer;
+        font-family: var(--font-sans);
+        transition: all 0.25s var(--ease);
+      }
+      .filter-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        border-color: transparent;
+        color: var(--dark);
+        font-weight: 700;
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-section {
+        padding: 90px 60px 100px;
+        background: var(--dark);
+      }
+      .gallery-intro {
+        max-width: 1240px;
+        margin: 0 auto 64px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 36px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .gi-left .tag {
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .gi-left .tag::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .gi-left h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(34px, 4vw, 52px);
+        font-weight: 400;
+        color: var(--cream);
+        line-height: 1.05;
+      }
+      .gi-left h2 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+      .gi-right {
+        max-width: 320px;
+        text-align: right;
+      }
+      .gi-right p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.85;
+      }
+
+      /* Masonry */
+      .gallery-grid {
+        columns: 3;
+        column-gap: 18px;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+      .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 18px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s var(--ease),
+          transform 0.6s var(--ease);
+      }
+      .gallery-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .gallery-item.hidden {
+        display: none;
+      }
+
+      .gallery-item:nth-child(1) {
+        transition-delay: 0.04s;
+      }
+      .gallery-item:nth-child(2) {
+        transition-delay: 0.09s;
+      }
+      .gallery-item:nth-child(3) {
+        transition-delay: 0.14s;
+      }
+      .gallery-item:nth-child(4) {
+        transition-delay: 0.19s;
+      }
+      .gallery-item:nth-child(5) {
+        transition-delay: 0.24s;
+      }
+      .gallery-item:nth-child(6) {
+        transition-delay: 0.29s;
+      }
+      .gallery-item:nth-child(7) {
+        transition-delay: 0.34s;
+      }
+      .gallery-item:nth-child(8) {
+        transition-delay: 0.39s;
+      }
+      .gallery-item:nth-child(9) {
+        transition-delay: 0.44s;
+      }
+      .gallery-item:nth-child(10) {
+        transition-delay: 0.49s;
+      }
+      .gallery-item:nth-child(11) {
+        transition-delay: 0.54s;
+      }
+      .gallery-item:nth-child(12) {
+        transition-delay: 0.59s;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        filter: brightness(0.9);
+        transition:
+          transform 0.65s var(--ease),
+          filter 0.4s;
+        height: 300px;
+      }
+      .gallery-item.tall img {
+        height: 460px;
+      }
+      .gallery-item.wide img {
+        height: 240px;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.06);
+        filter: brightness(1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 40%, rgba(8, 7, 5, 0.88) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 22px 20px;
+        opacity: 0;
+        transition: opacity 0.35s var(--ease);
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .gallery-cat {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .gallery-title {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--cream);
+        display: block;
+        line-height: 1.15;
+      }
+
+      /* Stats */
+      .gallery-stats {
+        max-width: 1240px;
+        margin: 72px auto 0;
+        padding-top: 52px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        justify-content: center;
+        gap: 88px;
+        flex-wrap: wrap;
+      }
+      .g-stat {
+        text-align: center;
+      }
+      .g-stat strong {
+        font-family: var(--font-serif);
+        font-size: 46px;
+        color: var(--gold-light);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .g-stat span {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.28);
+      }
+
+      /* ===== CTA ===== */
+      .cta-section {
+        padding: 120px 60px;
+        background: var(--dark-2);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .cta-section::before {
+        content: "FUNRIX";
+        position: absolute;
+        font-family: var(--font-serif);
+        font-size: 220px;
+        font-weight: 600;
+        color: rgba(201, 168, 76, 0.03);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: 24px;
+      }
+      .cta-inner {
+        max-width: 660px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-tag {
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 20px;
+      }
+      .cta-inner h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(38px, 5.5vw, 62px);
+        font-weight: 400;
+        color: var(--cream);
+        line-height: 1.1;
+        margin-bottom: 18px;
+      }
+      .cta-inner h2 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+      .cta-inner p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.42);
+        line-height: 1.8;
+        margin-bottom: 48px;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-gold {
+        display: inline-block;
+        padding: 16px 44px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        color: var(--dark);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        font-family: var(--font-sans);
+      }
+      .btn-gold:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 34px rgba(201, 168, 76, 0.38);
+      }
+      .btn-ghost {
+        display: inline-block;
+        padding: 15px 40px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: var(--font-sans);
+      }
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(201, 168, 76, 0.06);
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--dark);
+        padding: 76px 64px 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .footer-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 50px;
+        max-width: 1280px;
+        margin: 0 auto 56px;
+      }
+      .footer-logo {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        color: var(--gold-light);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .footer-box > p {
+        font-size: 13.5px;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.32);
+        margin-bottom: 26px;
+      }
+      .footer-box h4 {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 22px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.14);
+        font-family: var(--font-sans);
+        font-weight: 500;
+      }
+      .footer-box ul li {
+        margin-bottom: 11px;
+      }
+      .footer-box ul li a {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.32);
+        transition:
+          color 0.25s,
+          padding-left 0.25s;
+        display: inline-block;
+      }
+      .footer-box ul li a:hover {
+        color: var(--gold);
+        padding-left: 6px;
+      }
+      .contact-list li {
+        display: flex;
+        gap: 12px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.32);
+        margin-bottom: 13px;
+      }
+      .contact-list li span {
+        flex-shrink: 0;
+      }
+      .contact-list li a {
+        color: rgba(255, 255, 255, 0.32);
+        transition: color 0.25s;
+      }
+      .contact-list li a:hover {
+        color: var(--gold);
+      }
+      .social {
+        display: flex;
+        gap: 8px;
+        margin-top: 6px;
+      }
+      .social-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.38);
+        transition: all 0.25s;
+      }
+      .social-icon:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--dark);
+      }
+      .footer-bottom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .footer-bottom p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .footer-bottom strong {
+        color: rgba(255, 255, 255, 0.32);
+      }
+      .footer-tagline {
+        color: rgba(201, 168, 76, 0.38) !important;
+      }
+
+      /* ===== LIGHTBOX ===== */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 4, 3, 0.97);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+      .lightbox.open {
+        display: flex;
+        animation: fadeIn 0.22s ease;
+      }
+      .lb-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lb-wrap img {
+        max-width: 84vw;
+        max-height: 78vh;
+        border-radius: 10px;
+        object-fit: contain;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+        animation: lbIn 0.3s var(--ease);
+      }
+      @keyframes lbIn {
+        from {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .lb-caption {
+        position: absolute;
+        bottom: -52px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      .lb-caption .lbc-cat {
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-right: 10px;
+      }
+      .lb-caption .lbc-title {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .lb-close {
+        position: fixed;
+        top: 24px;
+        right: 28px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s;
+        z-index: 10;
+      }
+      .lb-close:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--dark);
+      }
+      .lb-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s;
+        z-index: 10;
+      }
+      .lb-nav:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--dark);
+      }
+      #lbPrev {
+        left: 24px;
+      }
+      #lbNext {
+        right: 24px;
+      }
+      .lb-counter {
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.28);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .gallery-grid {
+          columns: 2;
+        }
+        .footer-container {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery-stats {
+          gap: 48px;
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 0 20px;
+        }
+        .menu-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .logo-name {
+          display: none;
+        }
+        .nav-list {
+          display: none;
+          position: absolute;
+          top: 76px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          background: var(--dark-2);
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 12px 0 20px;
+          gap: 0;
+          align-items: flex-start;
+        }
+        .nav-list li {
+          width: 100%;
+        }
+        .nav-list li a {
+          padding: 12px 24px;
+          font-size: 12px;
+          border-radius: 0;
+        }
+        .nav-list.active {
+          display: flex;
+        }
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          animation: none;
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 0;
+          display: none;
+        }
+        .dropdown:hover .dropdown-menu {
+          display: none;
+        }
+        .dropdown.open .dropdown-menu {
+          display: block;
+        }
+        .gallery-hero {
+          min-height: 80vh;
+        }
+        .hero-content {
+          padding: 0 28px;
+        }
+        .hero-scroll {
+          display: none;
+        }
+        .filter-wrap {
+          top: 76px;
+        }
+        .filter-bar {
+          padding: 14px 16px;
+          gap: 6px;
+        }
+        .filter-btn {
+          padding: 7px 16px;
+          font-size: 9px;
+        }
+        .gallery-section {
+          padding: 56px 20px 80px;
+        }
+        .gallery-intro {
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
+        .gi-right {
+          text-align: left;
+          max-width: 100%;
+        }
+        .gallery-grid {
+          columns: 2;
+          column-gap: 12px;
+        }
+        .gallery-item img,
+        .gallery-item.tall img,
+        .gallery-item.wide img {
+          height: 200px;
+        }
+        .gallery-overlay {
+          opacity: 1;
+        }
+        .gallery-stats {
+          gap: 32px;
+        }
+        .g-stat strong {
+          font-size: 34px;
+        }
+        .cta-section {
+          padding: 70px 24px;
+        }
+        .footer {
+          padding: 56px 24px 28px;
+        }
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        #lbPrev {
+          left: 10px;
+        }
+        #lbNext {
+          right: 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .gallery-grid {
+          columns: 1;
+        }
+        .cta-btns {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .btn-gold,
+        .btn-ghost {
+          text-align: center;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- NAVBAR (same as other pages) -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
       <div class="logo">
         <a href="../index.html">
           <img src="../img/logo1.jpg" alt="Funrix Furniture Logo" />
+          <div class="logo-name">
+            Funrix
+            <small>Furniture House</small>
+          </div>
         </a>
       </div>
-
-      <ul class="nav-list">
-        <li><a href="../index.html">HOME</a></li>
-        <li><a href="../about-us.html">ABOUT US</a></li>
-
+      <div class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+        &#9776;
+      </div>
+      <ul class="nav-list" id="navList">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about-us.html">About Us</a></li>
         <li class="dropdown">
-          <a href="#">SERVICES</a>
+          <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">
+            Services <span class="arrow">&#9662;</span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="services/bedroom.html">Bedroom Furniture</a></li>
-            <li>
-              <a href="services/living-room.html">Living Room Furniture</a>
-            </li>
+            <li><a href="services/living-room.html">Living Room</a></li>
             <li>
               <a href="services/Office-Furniture.html">Office Furniture</a>
             </li>
           </ul>
         </li>
-
-        <li><a href="../gallery.html">GALLERY</a></li>
-        <li><a href="../contact.html">CONTACT</a></li>
+        <li><a href="../gallery.html" class="active">Gallery</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <!-- HERO -->
-    <section class="areas-hero">
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0"
-          alt=""
-        />
-        <span>Bedroom Furniture</span>
+    <!-- ===== HERO ===== -->
+    <section class="gallery-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>Our Portfolio — Surat, Gujarat</span>
+        </div>
+        <h1>Where Craft<br />Meets <em>Elegance</em></h1>
+        <p class="sub">
+          Explore our finest furniture creations for homes &amp; offices across
+          Surat and Gujarat.
+        </p>
       </div>
-      <h1>Our Furniture Gallery</h1>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
     </section>
 
-    <!-- GALLERY SECTION -->
+    <!-- ===== FILTER ===== -->
+    <div class="filter-wrap">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
+        <button class="filter-btn" data-filter="living">Living Room</button>
+        <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+        <button class="filter-btn" data-filter="office">Office</button>
+        <button class="filter-btn" data-filter="custom">Custom</button>
+      </div>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
     <section class="gallery-section">
-      <div class="container">
-        <div class="gallery-header">
-          <h2>Our Work in Surat</h2>
+      <div class="gallery-intro">
+        <div class="gi-left">
+          <div class="tag">Our Work in Surat</div>
+          <h2>Crafted with<br /><em>Passion &amp; Precision</em></h2>
+        </div>
+        <div class="gi-right">
           <p>
-            Explore our premium furniture collection crafted for homes and
-            offices across Surat – Adajan, Vesu, Varachha, Udhna & nearby areas.
+            Each piece represents decades of craftsmanship — designed for
+            Adajan, Vesu, Varachha, Udhna &amp; across Surat.
           </p>
         </div>
+      </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="img\ChatGPT Image Jan 31, 2026, 02_08_44 PM.png" />
-            <span>Living Room Furniture</span>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item tall" data-cat="living">
+          <img
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800"
+            alt="Modern Sofa Set Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Living Room</span>
+            <span class="gallery-title">Modern Sofa Set</span>
           </div>
+        </div>
+        <div class="gallery-item" data-cat="bedroom">
+          <img
+            src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800"
+            alt="Designer Bedroom"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Bedroom</span>
+            <span class="gallery-title">Luxury Bed &amp; Wardrobe</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="kitchen">
+          <img
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800"
+            alt="Modular Kitchen Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Kitchen</span>
+            <span class="gallery-title">L-Shaped Modular Kitchen</span>
+          </div>
+        </div>
+        <div class="gallery-item wide" data-cat="living">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+            alt="Premium Living Room"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Living Room</span>
+            <span class="gallery-title">Premium Living Setup</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="bedroom">
+          <img
+            src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800"
+            alt="Bedroom Furniture Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Bedroom</span>
+            <span class="gallery-title">Designer Bedroom Set</span>
+          </div>
+        </div>
+        <div class="gallery-item tall" data-cat="office">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
+            alt="Office Workstation"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Office</span>
+            <span class="gallery-title">Executive Workstation</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="office">
+          <img
+            src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800"
+            alt="Office Furniture Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Office</span>
+            <span class="gallery-title">Corporate Office Setup</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="custom">
+          <img
+            src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800"
+            alt="Custom Wooden Furniture"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Custom</span>
+            <span class="gallery-title">Handcrafted Wooden Shelf</span>
+          </div>
+        </div>
+        <div class="gallery-item wide" data-cat="living">
+          <img
+            src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800"
+            alt="TV Unit Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Living Room</span>
+            <span class="gallery-title">TV Unit &amp; Console</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="kitchen">
+          <img
+            src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800"
+            alt="Kitchen Interior Surat"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Kitchen</span>
+            <span class="gallery-title">Straight Modular Kitchen</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="custom">
+          <img
+            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800"
+            alt="Custom Interior Work"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Custom</span>
+            <span class="gallery-title">Full Room Interior</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-cat="bedroom">
+          <img
+            src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800"
+            alt="Kids Bedroom Furniture"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-cat">Bedroom</span>
+            <span class="gallery-title">Kids Bedroom Set</span>
+          </div>
+        </div>
+      </div>
 
-          <div class="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-            />
-            <span>Modern Haus Furniture</span>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1615874959474-d609969a20ed"
-            />
-            <span>Bedroom Furniture</span>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="https://img.staticmb.com/mbcontent/images/crop/uploads/2024/8/Sky-Blue-Shade-Kitchen-Wall-Tiles-Design_0_1200.jpg.webp"
-            />
-            <span>Modular Kitchen</span>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=725&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <span>Office Furniture</span>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="https://i.pinimg.com/736x/71/04/8d/71048d45ecf81d21fc40124d2948cb37.jpg"
-            />
-            <span>Custom Wooden Work</span>
-          </div>
+      <div class="gallery-stats">
+        <div class="g-stat">
+          <strong>8,006+</strong><span>Happy Customers</span>
+        </div>
+        <div class="g-stat">
+          <strong>1,200+</strong><span>Projects Done</span>
+        </div>
+        <div class="g-stat">
+          <strong>15+</strong><span>Years in Surat</span>
+        </div>
+        <div class="g-stat">
+          <strong>4.9&#9733;</strong><span>Customer Rating</span>
         </div>
       </div>
     </section>
 
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <span class="cta-tag">Start Your Project</span>
+        <h2>Like What<br />You <em>See?</em></h2>
+        <p>
+          Book a free home visit — let our designers craft the perfect furniture
+          for your space, anywhere in Surat.
+        </p>
+        <div class="cta-btns">
+          <a href="../contact.html" class="btn-gold">Book Free Visit</a>
+          <a href="tel:+919428213314" class="btn-ghost"
+            >&#128222;&nbsp; +91 942-821-3314</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER (Single) ===== -->
     <footer class="footer">
       <div class="footer-container">
-        <!-- ABOUT -->
         <div class="footer-box">
-          <h3>Funrix Furniture House</h3>
+          <span class="footer-logo">Funrix</span>
           <p>
-            Funrix Furniture House crafts elegant, durable, and comfortable
-            furniture for modern homes and offices. Premium designs that
-            transform your space with style and comfort.
+            Crafting elegant, durable &amp; comfortable furniture for modern
+            homes &amp; offices in Surat. Premium designs that transform your
+            space.
           </p>
+          <div class="social">
+            <a href="#" aria-label="Facebook" class="social-icon">F</a>
+            <a href="#" aria-label="Instagram" class="social-icon">IN</a>
+            <a href="#" aria-label="Twitter" class="social-icon">TW</a>
+            <a href="#" aria-label="YouTube" class="social-icon">YT</a>
+          </div>
         </div>
-
-        <!-- AREAS -->
         <div class="footer-box">
-          <h4>Areas We Service</h4>
+          <h4>Areas We Serve</h4>
           <ul>
             <li><a href="../areas/vesu-furniture.html">Vesu</a></li>
-            <li><a href="/areas/adajan.html">Adajan</a></li>
+            <li><a href="../areas/adajan.html">Adajan</a></li>
             <li><a href="../areas/Nanpura.html">Nanpura</a></li>
             <li><a href="../areas/Sagrampura.html">Sagrampura</a></li>
-            <li>
-              <strong>And<a href="#">MORE!</a></strong>
-            </li>
+            <li><a href="#">+ More Areas</a></li>
           </ul>
         </div>
-
-        <!-- IMPORTANT LINKS -->
         <div class="footer-box">
-          <h4>Important Links</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li><a href="../about-us.html">About Us</a></li>
             <li><a href="../contact.html">Contact Us</a></li>
-            <li><a href="important-links/privacy.html">Privacy Notice</a></li>
-
             <li>
-              <a href="important-links/cookies-policy.html">Cookies Policy</a>
+              <a href="../important-links/privacy.html">Privacy Notice</a>
+            </li>
+            <li>
+              <a href="../important-links/cookies-policy.html"
+                >Cookies Policy</a
+              >
             </li>
             <li>
               <a href="../important-links/terms-conditions.html"
-                >Terms & Conditions</a
+                >Terms &amp; Conditions</a
               >
             </li>
           </ul>
         </div>
-
-        <!-- CONTACT -->
         <div class="footer-box">
-          <h4>Contact Us</h4>
-          <p>🕒 Mon - Sat: 9:00 a.m. - 6:00 p.m.</p>
-          <p>📍 1/919, Nanpura, Surat – 395001</p>
-          <p>📞 +91 942-821-3314</p>
-          <p><a href="#">jyoti.sahani@buldel.com</a></p>
+          <h4>Contact</h4>
+          <ul class="contact-list">
+            <li><span>&#128336;</span> Mon–Sat: 9:00 AM – 6:00 PM</li>
+            <li><span>&#128205;</span> 1/919, Nanpura, Surat – 395001</li>
+            <li>
+              <span>&#128222;</span
+              ><a href="tel:+919428213314">+91 942-821-3314</a>
+            </li>
+            <li>
+              <span>&#128140;</span
+              ><a href="mailto:jyoti.sahani@buldel.com"
+                >jyoti.sahani@buldel.com</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
-        © 2026, <strong>Funrix Furniture House</strong> | All Rights Reserved.
-        <br />
-        Funrix Furniture — Elegant, Durable & Comfortable Designs <br />
-        ⭐ 4.9 / 5 stars | Trusted by 8,006+ Customers
+        <p>
+          &copy; 2026 <strong>Funrix Furniture House</strong> — All Rights
+          Reserved.
+        </p>
+        <p class="footer-tagline">
+          &#9733; 4.9/5 &nbsp;|&nbsp; Trusted by 8,006+ Customers in Surat
+        </p>
       </div>
     </footer>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+      <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+      <button class="lb-nav" id="lbPrev" onclick="changeImage(-1)">
+        &#8592;
+      </button>
+      <div class="lb-wrap">
+        <img id="lbImg" src="" alt="Furniture Preview" />
+        <div class="lb-caption">
+          <span class="lbc-cat" id="lbCat"></span>
+          <span class="lbc-title" id="lbTitle"></span>
+        </div>
+      </div>
+      <button class="lb-nav" id="lbNext" onclick="changeImage(1)">
+        &#8594;
+      </button>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+    <script>
+      /* Navbar */
+      function toggleMenu() {
+        document.getElementById("navList").classList.toggle("active");
+      }
+      function toggleDropdown(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.currentTarget.closest(".dropdown").classList.toggle("open");
+        }
+      }
+
+      /* Scroll reveal */
+      const allItems = document.querySelectorAll(".gallery-item");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.07 },
+      );
+      allItems.forEach((el) => io.observe(el));
+
+      /* Filter */
+      let current = 0;
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const f = btn.dataset.filter;
+          allItems.forEach((item) => {
+            if (f === "all" || item.dataset.cat === f) {
+              item.classList.remove("hidden");
+              requestAnimationFrame(() => item.classList.add("visible"));
+            } else {
+              item.classList.add("hidden");
+              item.classList.remove("visible");
+            }
+          });
+        });
+      });
+
+      /* Lightbox */
+      function visible() {
+        return [...allItems].filter((i) => !i.classList.contains("hidden"));
+      }
+      allItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const list = visible();
+          current = list.indexOf(item);
+          showLightbox(list, current);
+        });
+      });
+      function showLightbox(list, idx) {
+        const item = list[idx];
+        document.getElementById("lbImg").src = item.querySelector("img").src;
+        document.getElementById("lbCat").textContent =
+          item.querySelector(".gallery-cat")?.textContent || "";
+        document.getElementById("lbTitle").textContent =
+          item.querySelector(".gallery-title")?.textContent || "";
+        document.getElementById("lbCounter").textContent =
+          `${idx + 1} / ${list.length}`;
+        document.getElementById("lightbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function changeImage(dir) {
+        const list = visible();
+        current = (current + dir + list.length) % list.length;
+        showLightbox(list, current);
+      }
+      document.getElementById("lightbox").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("lightbox")) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!document.getElementById("lightbox").classList.contains("open"))
+          return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") changeImage(1);
+        if (e.key === "ArrowLeft") changeImage(-1);
+      });
+    </script>
   </body>
 </html>

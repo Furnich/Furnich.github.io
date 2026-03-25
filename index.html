@@ -4,24 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Furniture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Funrix Furniture House — Elegant Living</title>
   </head>
   <body>
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
       <div class="logo">
-     <a href="../index.html">
-        <img src="img/logo1.jpg" alt="Funrix Furniture Logo" />
+        <a href="index.html">
+          <img src="img/logo1.jpg" alt="Funrix Furniture Logo" />
+        </a>
       </div>
 
-      <!-- HAMBURGER -->
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">
+        &#9776;
+      </div>
 
       <ul class="nav-list" id="navList">
-        <li><a href="../index.html">HOME</a></li>
-        <li><a href="../about-us.html">ABOUT US</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about-us.html">ABOUT US</a></li>
 
+        <!-- FIX: onclick="toggleDropdown(event)" add kiya -->
         <li class="dropdown">
-          <a href="#">SERVICES</a>
+          <a href="#" onclick="toggleDropdown(event)">SERVICES</a>
           <ul class="dropdown-menu">
             <li><a href="services/bedroom.html">Bedroom Furniture</a></li>
             <li>
@@ -33,195 +43,350 @@
           </ul>
         </li>
 
-        <li><a href="../gallery.html">GALLERY</a></li>
-        <li><a href="../contact.html">CONTACT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
       </ul>
     </nav>
 
+    <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="overlay">
-        <h1>Funrix for Elegant Living</h1>
-        <p>Transform Your Home with Premium Craftsmanship</p>
-        <button onclick="callNow()">Book Free Visit</button>
+        <span class="hero-tag">Premium Craftsmanship Since 2010</span>
+        <h1>Funrix for <em>Elegant</em> Living</h1>
+        <p>Transform your home with furniture that tells your story</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="callNow()">
+            Book Free Visit
+          </button>
+          <a href="#collections" class="btn-outline">Explore Collections</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>8,006+</strong><span>Happy Customers</span>
+          </div>
+          <div class="stat">
+            <strong>4.9 &#9733;</strong><span>Star Rating</span>
+          </div>
+          <div class="stat">
+            <strong>15+</strong><span>Years Experience</span>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- ===== COLLECTIONS ===== -->
     <section id="collections" class="collections">
-      <h2>Our Premium Collections</h2>
+      <div class="section-header">
+        <span class="label">What We Offer</span>
+        <h2>Our Premium Collections</h2>
+        <p>Handcrafted with love, designed for modern living</p>
+      </div>
 
       <div class="collection-grid">
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/img/dining/sets/ginamon-6S/1.jpg?tr=w-640"
-          />
-          <h3>Dining Category</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/img/dining/sets/ginamon-6S/1.jpg?tr=w-640"
+              alt="Dining Set"
+              loading="lazy"
+            />
+          </div>
+          <h3>Dining Sets</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a"
-          />
+          <div class="item-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a"
+              alt="Designer Bedroom"
+              loading="lazy"
+            />
+          </div>
           <h3>Designer Bedroom</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://images.unsplash.com/photo-1600121848594-d8644e57abab"
-          />
+          <div class="item-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1600121848594-d8644e57abab"
+              alt="Modular Kitchen"
+              loading="lazy"
+            />
+          </div>
           <h3>Modular Kitchen</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
-          />
-          <h3>Wooden Chair</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
+              alt="Wooden Sofa"
+              loading="lazy"
+            />
+          </div>
+          <h3>Wooden Sofa</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/img/wardrobes-and-dressing-tables.jpg?tr=w-640"
-          />
-          <h3>Office Table</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/img/wardrobes-and-dressing-tables.jpg?tr=w-640"
+              alt="Wardrobes &amp; Dressing Tables"
+              loading="lazy"
+            />
+          </div>
+          <h3>Wardrobes &amp; Dressing</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/img/tv-unit-and-coffee-table.jpg?tr=w-640"
-          />
-          <h3>TV Unit</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/img/tv-unit-and-coffee-table.jpg?tr=w-640"
+              alt="TV Unit &amp; Coffee Table"
+              loading="lazy"
+            />
+          </div>
+          <h3>TV Unit &amp; Coffee Table</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/Bedroom/Mattress.jpg?tr=w-640"
-          />
-          <h3>Dining Set</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/Bedroom/Mattress.jpg?tr=w-640"
+              alt="Mattress"
+              loading="lazy"
+            />
+          </div>
+          <h3>Mattress</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/img/npl_modified_images/Barks_image/1.jpg?tr=w-1200"
-          />
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/img/npl_modified_images/Barks_image/1.jpg?tr=w-1200"
+              alt="Bookshelf"
+              loading="lazy"
+            />
+          </div>
           <h3>Bookshelf</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/img/cabinets-and-shelves.jpg?tr=w-640"
-          />
-          <h3>Cabinets & Shelves</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/img/cabinets-and-shelves.jpg?tr=w-640"
+              alt="Cabinets &amp; Shelves"
+              loading="lazy"
+            />
+          </div>
+          <h3>Cabinets &amp; Shelves</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/category-thumb/WBSBURNS4_desk2.jpg?tr=w-640"
-          />
-          <h3>Wakefit Burns Bookshelf</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/category-thumb/WBSBURNS4_desk2.jpg?tr=w-640"
+              alt="Study Desk"
+              loading="lazy"
+            />
+          </div>
+          <h3>Study Desk</h3>
         </div>
 
         <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/category-thumb/WRCLSGRN1LRDF_desk2.jpg?tr=w-640"
-          />
-          <h3>Sofas & Seating</h3>
-        </div>
-
-        <div class="item">
-          <img
-            src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/Living/chrome-base-black-chair.jpg?tr=w-640"
-          />
-          <h3>Chairs & WFH Furniture</h3>
-        </div>
-      </div>
-    </section>
-    <section id="areas" class="areas">
-      <h2>
-        Wayfair verified items are hand-vetted for quality by our product
-        specialists using a 10-point inspection
-      </h2>
-
-      <div class="collection-grid">
-        <div class="item">
-          <img
-            src="https://assets.wfcdn.com/im/57643732/resize-h315-w2000%5Ecompr-r85/3959/395929832/what_we_verify_for_395929832.jpg"
-            alt="Verified Furniture"
-          />
-          <h3>Chairs & WFH Furniture</h3>
+          <div class="item-img-wrap">
+            <img
+              src="https://ik.imagekit.io/2xkwa8s1i/consumer-react/category-thumb/WRCLSGRN1LRDF_desk2.jpg?tr=w-640"
+              alt="Sofas &amp; Seating"
+              loading="lazy"
+            />
+          </div>
+          <h3>Sofas &amp; Seating</h3>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- ABOUT -->
-        <div class="footer-box">
-          <h3>Funrix Furniture House</h3>
+    <!-- ===== WHY FUNRIX ===== -->
+    <section class="why-us">
+      <div class="section-header light">
+        <span class="label">Why Choose Us</span>
+        <h2>The Funrix Promise</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">&#127959;</span>
+          <h4>Premium Materials</h4>
           <p>
-            Funrix Furniture House crafts elegant, durable, and comfortable
-            furniture for modern homes and offices. Premium designs that
-            transform your space with style and comfort.
+            Solid wood &amp; top-grade materials for furniture that lasts
+            generations.
           </p>
         </div>
+        <div class="why-card">
+          <span class="why-icon">&#128338;</span>
+          <h4>On-Time Delivery</h4>
+          <p>We respect your time. Guaranteed delivery as per schedule.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">&#128295;</span>
+          <h4>Free Installation</h4>
+          <p>Expert team installs everything perfectly at no extra cost.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">&#9733;</span>
+          <h4>5-Year Warranty</h4>
+          <p>Every piece backed by our comprehensive 5-year warranty.</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- AREAS -->
+    <!-- ===== VERIFIED SECTION ===== -->
+    <section class="verified-section">
+      <div class="verified-inner">
+        <div class="verified-text">
+          <span class="label">Quality Assurance</span>
+          <h2>Every Item Verified &amp; Inspected</h2>
+          <p>
+            All our products go through a rigorous 10-point quality inspection
+            by our specialist team before reaching your home. We believe you
+            deserve nothing less than perfect.
+          </p>
+          <ul class="verified-list">
+            <li>&#10003; Material Quality Check</li>
+            <li>&#10003; Structural Durability Test</li>
+            <li>&#10003; Finish &amp; Polish Inspection</li>
+            <li>&#10003; Dimension Accuracy Verified</li>
+          </ul>
+        </div>
+        <div class="verified-img">
+          <img
+            src="https://assets.wfcdn.com/im/57643732/resize-h315-w2000%5Ecompr-r85/3959/395929832/what_we_verify_for_395929832.jpg"
+            alt="Quality Verified Furniture"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box footer-about">
+          <h3>Funrix Furniture House</h3>
+          <p>
+            Crafting elegant, durable &amp; comfortable furniture for modern
+            homes and offices. Premium designs that transform your space with
+            style.
+          </p>
+          <div class="social">
+            <a href="#" aria-label="Facebook" class="social-icon">f</a>
+            <a href="#" aria-label="Instagram" class="social-icon">in</a>
+            <a href="#" aria-label="Twitter" class="social-icon">tw</a>
+            <a href="#" aria-label="YouTube" class="social-icon">yt</a>
+          </div>
+        </div>
+
         <div class="footer-box">
           <h4>Areas We Service</h4>
           <ul>
-            <li><a href="../areas/vesu-furniture.html">Vesu</a></li>
-            <li><a href="/areas/adajan.html">Adajan</a></li>
-            <li><a href="../areas/Nanpura.html">Nanpura</a></li>
-            <li><a href="../areas/Sagrampura.html">Sagrampura</a></li>
+            <li><a href="areas/vesu-furniture.html">Vesu</a></li>
+            <li><a href="areas/adajan.html">Adajan</a></li>
+            <li><a href="areas/Nanpura.html">Nanpura</a></li>
+            <li><a href="areas/Sagrampura.html">Sagrampura</a></li>
+            <li><a href="#" class="more-link">+ More Areas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h4>Important Links</h4>
+          <ul>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="important-links/privacy.html">Privacy Notice</a></li>
             <li>
-              <strong>And<a href="#">MORE!</a></strong>
+              <a href="important-links/cookies-policy.html">Cookies Policy</a>
+            </li>
+            <li>
+              <a href="important-links/terms-conditions.html"
+                >Terms &amp; Conditions</a
+              >
             </li>
           </ul>
         </div>
 
-        <!-- IMPORTANT LINKS -->
-        <div class="footer-box">
-          <h4>Important Links</h4>
-          <ul>
-            <li><a href="../about-us.html">About Us</a></li>
-            <li><a href="../contact.html">Contact Us</a></li>
-          <li>
-  <a href="../important-links/privacy.html">Privacy Notice</a>
-</li>
-
-<li>
-  <a href="../important-links/cookies-policy.html">Cookies Policy</a>
-</li>
-
-<li>
-  <a href="../important-links/terms-conditions.html">
-    Terms & Conditions
-  </a>
-</li>
-          </ul>
-        </div>
-        <!-- CONTACT -->
         <div class="footer-box">
           <h4>Contact Us</h4>
-          <p>🕒 Mon - Sat: 9:00 a.m. - 6:00 p.m.</p>
-          <p>📍 1/919, Nanpura, Surat – 395001</p>
-          <p>📞 +91 942-821-3314</p>
-          <p><a href="#">jyoti.sahani@buldel.com</a></p>
+          <ul class="contact-list">
+            <li><span>&#128336;</span> Mon–Sat: 9:00 AM – 6:00 PM</li>
+            <li><span>&#128205;</span> 1/919, Nanpura, Surat – 395001</li>
+            <li>
+              <span>&#128222;</span
+              ><a href="tel:+919428213314">+91 942-821-3314</a>
+            </li>
+            <li>
+              <span>&#128140;</span
+              ><a href="mailto:jyoti.sahani@buldel.com"
+                >jyoti.sahani@buldel.com</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        © 2026, <strong>Funrix Furniture House</strong> | All Rights Reserved.
-        <br />
-        Funrix Furniture — Elegant, Durable & Comfortable Designs <br />
-        ⭐ 4.9 / 5 stars | Trusted by 8,006+ Customers
+        <p>
+          &copy; 2026 <strong>Funrix Furniture House</strong> — All Rights
+          Reserved.
+        </p>
+        <p class="footer-tagline">
+          Elegant, Durable &amp; Comfortable Designs &nbsp;|&nbsp; &#9733; 4.9/5
+          — Trusted by 8,006+ Customers
+        </p>
       </div>
-
-      <script>
-        function toggleMenu() {
-          var menu = document.getElementById("navList");
-          menu.classList.toggle("active");
-        }
-      </script>
     </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navList").classList.toggle("active");
+      }
+
+      // FIX: Sirf mobile pe dropdown toggle karo, desktop pe normal link kaam kare
+      function toggleDropdown(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.currentTarget.closest(".dropdown").classList.toggle("open");
+        }
+      }
+
+      function callNow() {
+        window.location.href = "tel:+919428213314";
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Scroll reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".item, .why-card")
+        .forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
